@@ -1,8 +1,50 @@
-import React from 'react'
-
+import React, {useState} from 'react';
+import * as d3 from 'd3';
+import data from "../BandwidthHighRiskBlock.csv";
 const PhoneDetails = ({ phoneDetails }) => {
+
+    const [test, setTest] = useState('High')
+
+    function ProcessCsv(props) {
+        //var test = "High";
+        // d3.csv(data).then(function(data) {
+        //     data.some(function(d) {  
+        //         //console.log("+" + d.Prefix);
+        //         if (props.number.includes("17754")) {
+        //             break;
+        //         }
+        //         else {
+        //             test = "None";
+        //         }
+        //     });
+        // });
+        d3.csv(data).then(function(data) {
+            for (let d of data) {
+                if (props.number.includes("+" + d.Prefix)) {
+                    console.log("inside if");
+                    break;
+                }
+                else {
+                    //console.log("inside else");
+                    setTest("None");
+                    //console.log("inside else, test = " + test);
+                }
+                //console.log("outside if/else, test = " + test);
+            }
+            console.log("inside for, test = " + test);
+            //test3 = test;
+        });
+        console.log("outside loop, test3 = " + test);
+        if (test === "High") {
+            console.log("inside if2,  test = " + test);
+            return <p>Bandwidth High Risk if: {test}</p>;
+        }
+        else {
+            console.log("inside else2,  test = " + test);
+            return <p>Bandwidth High Risk else: {test}</p>;
+        }
+    }
     return (
-        // <input type="text" className="form-control" ref={(c) => this.PhoneDetails = c} name="title" />
         <div key="index">
             <center><h1>Number Info</h1></center>
             {phoneDetails.map((phoneDetail) => (
@@ -17,15 +59,13 @@ const PhoneDetails = ({ phoneDetails }) => {
                 <p class="card-text">Location: {phoneDetail.location}</p>
                 <p class="card-text">Carrier: {phoneDetail.carrier}</p>
                 <p class="card-text">Line type: {phoneDetail.line_type}</p>
+                {/* <p class="card-text">Bandwidth High Risk Prefix: {processCsv(phoneDetail.international_format)}</p> */}
+                {/* <div> {processCsv(phoneDetail.international_format)} </div> */}
+                <div> <ProcessCsv number={phoneDetail.international_format.toString()}/> </div>
                 </div>
             </div>
             ))}
         </div>
-
-    
-    // <pre>
-    //     {JSON.stringify(phoneDetails, null, 2)}
-    // </pre>
     )
 };
 

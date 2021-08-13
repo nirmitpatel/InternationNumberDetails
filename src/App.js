@@ -117,6 +117,11 @@ export class App extends Component{
     phoneNumber = this.state.phone;
     console.log("phoneNumber: " + phoneNumber);
     //let selectedWord = "17754127163";
+          //   d3.csv(data).then(function(data) {
+          //     console.log(data)
+          //   }).catch(function(err) {
+          //     throw err;
+          // })
     fetchAPI(phoneNumber)
     .then(response => response.json())
     .then((data) => {
