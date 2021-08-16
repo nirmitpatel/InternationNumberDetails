@@ -79,6 +79,7 @@ export class App extends Component{
   export default App;
 */
 
+//import { count } from 'd3';
 import React, {Component} from 'react';
 import PhoneDetails from './components/phoneDetails';
 let phoneNumber;
@@ -94,10 +95,11 @@ export class App extends Component{
     super();
     this.state = {
       phoneDetails: [],
-      phone: null
+      phone: null,
+      countNum: 0
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.toggleButtonState = this.toggleButtonState.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
+    //this.toggleButtonState = this.toggleButtonState.bind(this);
   }
  
   /*
@@ -108,20 +110,23 @@ export class App extends Component{
   }
   */
 
+  /*
   handleChange (e) {
     this.setState({phone: e.target.value});
   }
+*/
 
-  toggleButtonState = () => {
+ handleChange = (e) => {
+  e.preventDefault()
+  this.setState({phone: e.target.value});
+}
+
+  toggleButtonState = (e) => {
+    e.preventDefault()
     console.log("state phone: " + this.state.phone);
     phoneNumber = this.state.phone;
     console.log("phoneNumber: " + phoneNumber);
-    //let selectedWord = "17754127163";
-          //   d3.csv(data).then(function(data) {
-          //     console.log(data)
-          //   }).catch(function(err) {
-          //     throw err;
-          // })
+    //this.state.countNum = this.state.countNum + 1;
     fetchAPI(phoneNumber)
     .then(response => response.json())
     .then((data) => {
@@ -133,15 +138,17 @@ export class App extends Component{
     //   this.setState({ result });
     // });
   };
-    render() {
-      return (
-        <div>
-          <p>Phone Number: </p><input type='text' onChange = {this.handleChange}/>
-          <button onClick={this.toggleButtonState}> Click me </button>
-          <PhoneDetails phoneDetails={this.state.phoneDetails} /> 
-        </div>
-      );
-    }
+  render() {
+    return (
+      this.state.countNum = this.state.countNum + 1,
+      <div>
+        <p>Phone Number: </p><input type='text' onChange = {this.handleChange}/>
+        <button onClick={this.toggleButtonState}> Click me </button>
+        <PhoneDetails phoneDetails={this.state.phoneDetails} /> 
+        <p>Count: {this.state.countNum}</p>
+      </div>
+    );
+  }
 }
 
 // ReactDOM.render(<App />, document.getElementById('container'));

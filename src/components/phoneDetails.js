@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import * as d3 from 'd3';
-import data from "../BandwidthHighRiskBlock.csv";
-const PhoneDetails = ({ phoneDetails }) => {
+//import data from "../BandwidthHighRiskBlock.csv";
+import data from "../test.csv";
 
-    const [test, setTest] = useState('High')
+
+const PhoneDetails = ({ phoneDetails }) => {
+    const [test, setTest] = useState('Ehh')
+    const [count, setCount] = useState(0)
 
     function ProcessCsv(props) {
         //var test = "High";
@@ -19,9 +22,11 @@ const PhoneDetails = ({ phoneDetails }) => {
         //     });
         // });
         d3.csv(data).then(function(data) {
+            setCount(count + 1)
             for (let d of data) {
                 if (props.number.includes("+" + d.Prefix)) {
                     console.log("inside if");
+                    setTest("High");
                     break;
                 }
                 else {
@@ -37,11 +42,11 @@ const PhoneDetails = ({ phoneDetails }) => {
         console.log("outside loop, test3 = " + test);
         if (test === "High") {
             console.log("inside if2,  test = " + test);
-            return <p>Bandwidth High Risk if: {test}</p>;
+            return <p>Bandwidth High Risk if: {test + " " + count}</p>;
         }
         else {
             console.log("inside else2,  test = " + test);
-            return <p>Bandwidth High Risk else: {test}</p>;
+            return <p>Bandwidth High Risk else: {test + " " + count}</p>;
         }
     }
     return (
