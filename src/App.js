@@ -4,10 +4,11 @@ import ReturnDetails from './components/ReturnDetails';
 //import useNumberDetails from './components/useNumberDetails';
 import * as d3 from 'd3';
 import data from "./BandwidthHighRiskBlock.csv";
-
+import background from "./background-globe-animated.svg"
+import "./App.css";
 
 function App(){
-
+  
   const [phone, setPhone]= useState()
   const [phoneDetails, setPhoneDetails] = useState([])
   const [csvData, setCsvData] = useState([])
@@ -37,20 +38,38 @@ const toggleButtonState = async(e) => {
   }
   )
 };
-
+var rootStyle = {
+  backgroundImage: `url(${background})`,
+  color : 'white',
+  height: '100vh',
+  width: '100vw',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  overflow: 'hidden',
+  backgroundPosition: 'center',
+  fontFamily: 'Overpass,sans-serif',
+  textAlign: 'left',
+  //alignItems: 'left',
+}
 
   return (
-    
-    <div>
-      <p>Phone Number: </p><input value = {phone} onChange = {(e) => handleInput(e)} />
-      <button onClick={(e) => toggleButtonState(e)}> Click me </button>
-      
-        <ReturnDetails  csv = {csvData} phoneDetails = {phoneDetails} /> 
+    <div style={rootStyle}>
+      <center>
+        <div>
+          <h1>Number Info</h1>
+          <p><h5>Enter Phone Number: </h5><input className = "InputBox" value = {phone} onChange = {(e) => handleInput(e)} /> 
+          <button className = "ClickMeButton" onClick={(e) => toggleButtonState(e)}> View Info! </button> </p>
+        </div>
+        <div>
+          <br></br>
+        </div>
+        <div>
+          <ReturnDetails  csv = {csvData} phoneDetails = {phoneDetails} /> 
+        </div>
+      </center>
     </div>
   );
   
 }
-
-// ReactDOM.render(<App />, document.getElementById('container'));
 
 export default App;

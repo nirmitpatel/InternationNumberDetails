@@ -1,6 +1,7 @@
 //import React, {useState, useCallback} from 'react';
 import React from 'react';
 import ProcessCsv from './ProcessCsv';
+//import background from "../ReactBackground.gif"
 
 
 
@@ -9,15 +10,25 @@ import ProcessCsv from './ProcessCsv';
    
         
         const { csv, phoneDetails} = props
-       
+        var rootStyle = {
+            //backgroundImage: `url(${background})`,
+            background: "#fffff2",
+            color : '#AC3B61',
+            //height: '100vh',
+            //backgroundSize: 'cover',
+            overflow: 'hidden',
+            width: '400px',
+            fontFamily: 'Overpass,sans-serif',
+            textAlign: 'left',
+            alignItems: 'left',
+          }
     
          return (
             <div key="index">
-                <center><h1>Number Info</h1></center>
                 
                 { phoneDetails ? phoneDetails.map((phoneDetail) => (
                 
-                <div class="card">
+                <div className="card" style={rootStyle}>
                     <div class="card-body">
                     <p class="card-text">Number: {phoneDetail.number}</p>
                     <p class="card-text">Local format: {phoneDetail.local_format}</p>

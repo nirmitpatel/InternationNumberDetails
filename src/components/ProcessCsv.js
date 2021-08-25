@@ -20,9 +20,9 @@ import React from 'react';
              }
          }
 
-        if(high) {return   <p>Bandwidth High Risk if: High</p>;    }
+        if(high) {return   <p>High Risk: Yes</p>;    }
 
-        else{return <p>Bandwidth High Risk else: None</p>;  }
+        else{return <p>High Risk: No</p>;  }
     
         }
 
