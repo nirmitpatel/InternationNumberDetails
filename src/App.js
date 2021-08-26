@@ -4,19 +4,29 @@ import ReturnDetails from './components/ReturnDetails';
 //import useNumberDetails from './components/useNumberDetails';
 import * as d3 from 'd3';
 import data from "./BandwidthHighRiskBlock.csv";
+import lite from "./lite.csv";
 import background from "./background-globe-animated.svg"
 import "./App.css";
 
 function App(){
   
-  const [phone, setPhone]= useState()
+  const [phone, setPhone]= useState('')
   const [phoneDetails, setPhoneDetails] = useState([])
-  const [csvData, setCsvData] = useState([])
+  const [highRiskData, setHighRiskData] = useState([])
+  const [liteData, setLiteData] = useState([])
 
   useEffect(()=> {
     d3.csv(data).then(function(dta) {
          
-      setCsvData(dta)
+      setHighRiskData(dta)
+     
+  })
+  },[])
+
+  useEffect(()=> {
+    d3.csv(lite).then(function(liteDta) {
+         
+      setLiteData(liteDta)
      
   })
   },[])
@@ -57,14 +67,17 @@ var rootStyle = {
       <center>
         <div>
           <h1>Number Info</h1>
-          <p><h5>Enter Phone Number: </h5><input className = "InputBox" value = {phone} onChange = {(e) => handleInput(e)} /> 
-          <button className = "ClickMeButton" onClick={(e) => toggleButtonState(e)}> View Info! </button> </p>
+          <div>
+              <h5>Enter Phone Number: </h5>
+              <input className = "InputBox" value = {phone} onChange = {(e) => handleInput(e)} /> 
+              <button className = "ClickMeButton" onClick={(e) => toggleButtonState(e)}> View Info! </button>
+          </div>
         </div>
         <div>
           <br></br>
         </div>
         <div>
-          <ReturnDetails  csv = {csvData} phoneDetails = {phoneDetails} /> 
+          <ReturnDetails  csv = {highRiskData} phoneDetails = {phoneDetails} liteCsv = {liteData}/> 
         </div>
       </center>
     </div>

@@ -1,18 +1,15 @@
-//import React, {useState, useCallback} from 'react';
 import React from 'react';
 import ProcessCsv from './ProcessCsv';
-//import background from "../ReactBackground.gif"
-
+import ProcessLiteCsv from './ProcessLiteCsv';
 
 
    function ReturnDetails(props)  {
 
-   
-        
-        const { csv, phoneDetails} = props
+        const { csv, phoneDetails, liteCsv } = props
         var rootStyle = {
             //backgroundImage: `url(${background})`,
-            background: "#fffff2",
+            //background: "#fffff2",
+            background: "rgba(255, 255, 242, .9)",
             color : '#AC3B61',
             //height: '100vh',
             //backgroundSize: 'cover',
@@ -20,7 +17,7 @@ import ProcessCsv from './ProcessCsv';
             width: '400px',
             fontFamily: 'Overpass,sans-serif',
             textAlign: 'left',
-            alignItems: 'left',
+            alignItems: 'left'
           }
     
          return (
@@ -28,20 +25,23 @@ import ProcessCsv from './ProcessCsv';
                 
                 { phoneDetails ? phoneDetails.map((phoneDetail) => (
                 
-                <div className="card" style={rootStyle}>
-                    <div class="card-body">
-                    <p class="card-text">Number: {phoneDetail.number}</p>
-                    <p class="card-text">Local format: {phoneDetail.local_format}</p>
-                    <p class="card-text">International format: {phoneDetail.international_format}</p>
-                    <p class="card-text">Country prefix: {phoneDetail.country_prefix}</p>
-                    <p class="card-text">Country code: {phoneDetail.country_code}</p>
-                    <p class="card-text">Country name: {phoneDetail.country_name}</p>
-                    <p class="card-text">Location: {phoneDetail.location}</p>
-                    <p class="card-text">Carrier: {phoneDetail.carrier}</p>
-                    <p class="card-text">Line type: {phoneDetail.line_type}</p>
-                    
-                     <div><ProcessCsv details = {phoneDetail.international_format.toString()} dta = {csv} /> </div> 
-                   
+                <div className="card" key="index2" style={rootStyle}>
+                    <div className="card-body">
+                        <p className="card-text">Number: {phoneDetail.number}</p>
+                        <p className="card-text">Local format: {phoneDetail.local_format}</p>
+                        <p className="card-text">International format: {phoneDetail.international_format}</p>
+                        <p className="card-text">Country prefix: {phoneDetail.country_prefix}</p>
+                        <p className="card-text">Country code: {phoneDetail.country_code}</p>
+                        <p className="card-text">Country name: {phoneDetail.country_name}</p>
+                        <p className="card-text">Location: {phoneDetail.location}</p>
+                        <p className="card-text">Carrier: {phoneDetail.carrier}</p>
+                        <p className="card-text">Line type: {phoneDetail.line_type}</p>
+                        <div>
+                            <ProcessCsv details = {phoneDetail.international_format.toString()} dta = {csv} /> 
+                        </div> 
+                        <div>
+                            <ProcessLiteCsv number = {phoneDetail.international_format.toString()} csvFile = {liteCsv} /> 
+                        </div> 
                     </div>
                 </div> 
                 )) : console.log('no map')}
