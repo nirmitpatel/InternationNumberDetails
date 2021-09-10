@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+# International Number Lookup Tool
+
+## How to use
+1. Go to https://bwnumlookup.netlify.app/
+Note: If it's your first time, some of the content might not load once you click on the button to see details. It is due to the API we are using is HTTP. To get around it, please click on the lock button next to the URL and go to Site Settings. From there, locate "Insecure Content" and select Allow. Here are the steps: Chrome: https://experienceleague.adobe.com/docs/target/using/experiences/vec/troubleshoot-composer/mixed-content.html?lang=en, Firefox: 
+
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

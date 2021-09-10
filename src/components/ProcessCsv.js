@@ -1,29 +1,24 @@
 import React from 'react';
-//import * as d3 from 'd3';
-//import data from "../test.csv";
-   
-    function ProcessCsv(props) {
-       console.log('process')
+function ProcessCsv(props) {
+  console.log('process')
 
-       const {details, dta} = props
-       let high = false
-     
-         for (let d of dta) {
-             //console.log(dta)
-             //console.log(d)
-             if (details.includes("+" + d.Prefix)) {
-                high = true
-                break;
-             }
-             else {
-               //console.log('csv')
-             }
-         }
+  const { details, dta } = props
+  let high = false
 
-        if(high) {return   <p>High Risk: Yes</p>;    }
+  for (let d of dta) {
+    if (details.includes("+" + d.Prefix)) {
+      high = true
+      break;
+    }
+    else {
+      // do nothing 
+    }
+  }
 
-        else{return <p>High Risk: No</p>;  }
-    
-        }
+  if (high) { return <p>High Risk: Yes</p>; }
 
- export default ProcessCsv
+  else { return <p>High Risk: No</p>; }
+
+}
+
+export default ProcessCsv
