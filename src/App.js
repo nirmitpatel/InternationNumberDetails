@@ -84,32 +84,6 @@ function App() {
   }
 
   return (
-    // <div className={splitScreen}>
-    //   <div style={rootStyle}>
-    //     {/* <center> */}
-    //       <div>
-    //         <h1>Number Info</h1>
-    //         <div className={topPane}>
-    //             <h5>Enter Phone Number: </h5>
-    //             <input className = "InputBox" value = {phone} onChange = {(e) => handleInput(e)} /> 
-    //             <button className = "ClickMeButton" onClick={(e) => toggleButtonState(e)}> View Info! </button>
-    //         </div>
-    //       </div>
-    //       <div>
-    //         <br></br>
-    //       </div>
-    //       <div>
-    //         <ReturnDetails  csv = {highRiskData} phoneDetails = {phoneDetails} liteCsv = {liteData}/> 
-    //       </div>
-    //       <div className={bottomPane}>
-    //             <h5>Enter Local Phone Number: </h5>
-    //             <input className = "InputBox" value = {phone} onChange = {(e) => handleInput(e)} /> 
-    //             <button className = "ClickMeButton" onClick={(e) => toggleButtonState(e)}> View Info! </button>
-    //         </div>
-    //     {/* </center> */}
-    //   </div>
-    // </div>,
-
     <div className='App' style={rootStyle}>
       <center>
         <h1>Number Info Tool</h1>
