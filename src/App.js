@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import ReturnDetails from './components/ReturnDetails';
 import ReturnLocalDetails from './components/ReturnLocalDetails';
@@ -8,6 +7,7 @@ import lite from "./lite.csv";
 import background from "./background-globe-animated.svg"
 import "./App.css";
 import SplitPane from 'react-split-pane'
+import * as ReactBootStrap from 'react-bootstrap';
 
 function App() {
 
@@ -17,6 +17,7 @@ function App() {
   const [liteData, setLiteData] = useState([])
   const [intlPhone, setIntlPhone] = useState('')
   const [intlPhoneDetails, setIntlPhoneDetails] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     d3.csv(data).then(function (dta) {
@@ -37,12 +38,10 @@ function App() {
   const handleLocalInput = (e) => {
     e.preventDefault()
     setLocalPhone(e.target.value)
-    //console.log(phone)
   }
   const handleIntlInput = (e) => {
     e.preventDefault()
     setIntlPhone(e.target.value)
-    //console.log(phone)
   }
   const toggleIntlButtonState = async (e) => {
     if (intlPhoneDetails) { setIntlPhoneDetails([]) }
@@ -57,8 +56,10 @@ function App() {
       )
   };
   const toggleLocalButtonState = async (e) => {
+
     if (localPhoneDetails) { setLocalPhoneDetails([]) }
     e.preventDefault()
+    setLoading(false);
     await fetch('https://0xi9lxezba.execute-api.us-east-2.amazonaws.com/test/tnlookup?number=' + localPhone)
       .then(async response => response.json())
       .then((data) => {
@@ -69,6 +70,7 @@ function App() {
         console.log('this from app.js: ' + localPhoneDetails)
       }
       )
+    setLoading(true);
   };
   var rootStyle = {
     backgroundImage: `url(${background})`,
@@ -99,7 +101,9 @@ function App() {
               <br></br>
             </div>
             <div>
-              <ReturnLocalDetails localPhoneDetails={localPhoneDetails} />
+              {loading ? <ReturnLocalDetails localPhoneDetails={localPhoneDetails} /> :
+                <ReactBootStrap.Spinner animation="border" variant="info" />
+              }
             </div>
           </div>
           <div>
@@ -113,7 +117,7 @@ function App() {
               <br></br>
             </div>
             <div>
-              <ReturnDetails  csv = {highRiskData} intlPhoneDetails = {intlPhoneDetails} liteCsv = {liteData}/> 
+              <ReturnDetails csv={highRiskData} intlPhoneDetails={intlPhoneDetails} liteCsv={liteData} />
             </div>
           </div>
         </SplitPane></center>
