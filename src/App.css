@@ -45,6 +45,7 @@
   transition: background-color 0.2s;
   cursor: pointer;
   position: relative;
+  border: none;
 }
 
 .InputBox {
@@ -56,6 +57,16 @@
   position: relative;
   text-align: center;
   margin: 0 15px 10px 0;
+  border: none;
+}
+
+.Title {
+  font: bold;
+  text-shadow: 1px 0px currentColor;
+}
+
+.card-body {
+  padding: 0px !important;
 }
 
 @keyframes App-logo-spin {

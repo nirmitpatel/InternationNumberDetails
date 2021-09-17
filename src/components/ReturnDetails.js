@@ -1,19 +1,23 @@
 import React from 'react';
 import ProcessCsv from './ProcessCsv';
 import ProcessLiteCsv from './ProcessLiteCsv';
+import "../App.css";
 
 
 function ReturnDetails(props) {
 
     const { csv, intlPhoneDetails, liteCsv } = props
     var rootStyle = {
-        background: "rgba(255, 255, 242, .9)",
-        color: '#AC3B61',
+        background: '#b3ecfb',
+        color: '#000000',
         overflow: 'hidden',
         width: '400px',
         fontFamily: 'Overpass,sans-serif',
+        fontWeight: 'bold',
         textAlign: 'left',
-        alignItems: 'left'
+        alignItems: 'left',
+        borderRadius: '20px',
+        padding: '15px 0px 0px 25px'
     }
 
     return (
