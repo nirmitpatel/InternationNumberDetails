@@ -27,21 +27,28 @@ function ReturnDetails(props) {
 
                 <div className="card" key="index2" style={rootStyle}>
                     <div className="card-body">
-                        <p className="card-text">Number: {intlPhoneDetail.number}</p>
-                        <p className="card-text">Local format: {intlPhoneDetail.local_format}</p>
-                        <p className="card-text">International format: {intlPhoneDetail.international_format}</p>
-                        <p className="card-text">Country prefix: {intlPhoneDetail.country_prefix}</p>
-                        <p className="card-text">Country code: {intlPhoneDetail.country_code}</p>
-                        <p className="card-text">Country name: {intlPhoneDetail.country_name}</p>
-                        <p className="card-text">Location: {intlPhoneDetail.location}</p>
-                        <p className="card-text">Carrier: {intlPhoneDetail.carrier}</p>
-                        <p className="card-text">Line type: {intlPhoneDetail.line_type}</p>
-                        <div>
-                            <ProcessCsv details={intlPhoneDetail.international_format.toString()} dta={csv} />
-                        </div>
-                        <div>
-                            <ProcessLiteCsv number={intlPhoneDetail.international_format.toString()} csvFile={liteCsv} />
-                        </div>
+                        {(
+                            !intlPhoneDetail.valid ?
+                                <p className="card-text" style={{ 'color': 'red', 'paddingBottom': '10px'}}>ERROR: The number entered is not valid!!</p> :
+                                <>
+                                    <p className="card-text">Number: {intlPhoneDetail.number}</p>
+                                    <p className="card-text">Local format: {intlPhoneDetail.local_format}</p>
+                                    <p className="card-text">International format: {intlPhoneDetail.international_format}</p>
+                                    <p className="card-text">Country prefix: {intlPhoneDetail.country_prefix}</p>
+                                    <p className="card-text">Country code: {intlPhoneDetail.country_code}</p>
+                                    <p className="card-text">Country name: {intlPhoneDetail.country_name}</p>
+                                    <p className="card-text">Location: {intlPhoneDetail.location}</p>
+                                    <p className="card-text">Carrier: {intlPhoneDetail.carrier}</p>
+                                    <p className="card-text">Line type: {intlPhoneDetail.line_type}</p>
+
+                                    <div>
+                                        <ProcessCsv details={intlPhoneDetail.international_format.toString()} dta={csv} />
+                                    </div>
+                                    <div>
+                                        <ProcessLiteCsv number={intlPhoneDetail.international_format.toString()} csvFile={liteCsv} />
+                                    </div>
+                                </>
+                        )}
                     </div>
                 </div>
             )) : console.log('no map')}

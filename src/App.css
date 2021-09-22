@@ -60,13 +60,36 @@
   border: none;
 }
 
-.Title {
+.localTitle {
   font: bold;
   text-shadow: 1px 0px currentColor;
+  background: url('./blueBrushStroke.png');
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+  background-position: center;
+  padding: 8px 0;
+}
+
+.intlTitle {
+  font: bold;
+  text-shadow: 1px 0px currentColor;
+  background: url('./blueBrushStroke.png');
+  background-repeat: no-repeat;
+  background-size: 70% 100%;
+  background-position: center;
+  padding: 8px 0;
 }
 
 .card-body {
   padding: 0px !important;
+}
+
+.highlight {
+background: url('./blueBrushStroke.png');
+background-repeat: no-repeat;
+background-size: 30% 100%;
+background-position: center;
+padding: 8px 0;
 }
 
 @keyframes App-logo-spin {

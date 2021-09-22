@@ -94,7 +94,7 @@ function App() {
         <h1>Number Info Tool</h1>
         <SplitPane split='vertical' minSize='50%' defaultSize='50%'>
           <div>
-            <h2 className="Title">Local Number Search</h2>
+            <h2 className="localTitle">Local Number Search</h2>
             <div>
               <h5>Enter Local Phone Number: </h5>
               <input className="InputBox" value={localPhone} onChange={(e) => handleLocalInput(e)} placeholder="1XXXXXXXXXX" />
@@ -109,7 +109,7 @@ function App() {
             </div>
           </div>
           <div>
-            <h2 className="Title">International Number Search</h2>
+            <h2 className="intlTitle">International Number Search</h2>
             <div>
               <h5>Enter International Phone Number: </h5>
               <input className="InputBox" value={intlPhone} onChange={(e) => handleIntlInput(e)} placeholder="44XXXXXXXXX" />
