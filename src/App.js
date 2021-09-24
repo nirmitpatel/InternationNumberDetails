@@ -38,10 +38,16 @@ function App() {
 
   const handleLocalInput = (e) => {
     e.preventDefault()
+    if (/\D/g.test(e.target.value)) {
+      e.target.value = e.target.value.replace(/\D/g, '');
+    }
     setLocalPhone(e.target.value)
   }
   const handleIntlInput = (e) => {
     e.preventDefault()
+    if (/\D/g.test(e.target.value)) {
+      e.target.value = e.target.value.replace(/\D/g, '');
+    }
     setIntlPhone(e.target.value)
   }
   const toggleIntlButtonState = async (e) => {
@@ -97,7 +103,7 @@ function App() {
             <h2 className="localTitle">Local Number Search</h2>
             <div>
               <h5>Enter Local Phone Number: </h5>
-              <input className="InputBox" value={localPhone} onChange={(e) => handleLocalInput(e)} placeholder="1XXXXXXXXXX" />
+              <input id = "local" className="InputBox" value={localPhone} onChange={(e) => handleLocalInput(e)} placeholder="1XXXXXXXXXX" />
               <button className="ClickMeButton" onClick={(e) => toggleLocalButtonState(e)}> View Info! </button>
             </div>
             <div>
