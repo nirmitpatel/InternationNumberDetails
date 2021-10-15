@@ -54,14 +54,12 @@ function App() {
     if (intlPhoneDetails) { setIntlPhoneDetails([]) }
     e.preventDefault()
     setIntlLoading(false);
-    fetch('http://apilayer.net/api/validate?access_key=1fcc33e69f7fee637d15338c111fe68f&number=' + intlPhone + '&country_code=&format=1')
-      .then(response => response.json())
+    await fetch('https://karh5qw55m.execute-api.us-east-2.amazonaws.com/test/intlnumlookup?phone=' + intlPhone)
+      .then(async response => response.json())
       .then((data) => {
-
         setIntlPhoneDetails(intlPhoneDetails => [...intlPhoneDetails, data])
-        console.log('in the toggle fetch')
       }
-      )
+    )
     setIntlLoading(true);
   };
   const toggleLocalButtonState = async (e) => {
@@ -72,11 +70,7 @@ function App() {
     await fetch('https://0xi9lxezba.execute-api.us-east-2.amazonaws.com/test/tnlookup?number=' + localPhone)
       .then(async response => response.json())
       .then((data) => {
-        console.log('before data')
-        console.log(data)
-        console.log('in data of toggleIntlButtonState')
         setLocalPhoneDetails(localPhoneDetails => [...localPhoneDetails, data])
-        console.log('this from app.js: ' + localPhoneDetails)
       }
       )
     setLocalLoading(true);
@@ -100,7 +94,8 @@ function App() {
         <h1>Number Info Tool</h1>
         <SplitPane split='vertical' minSize='50%' defaultSize='50%'>
           <div>
-            <h2 className="localTitle">Local Number Search</h2>
+            {/* <h2 className="localTitle">Local Number Search</h2> */}
+            <h2>Local Number Search</h2>
             <div>
               <h5>Enter Local Phone Number: </h5>
               <input id = "local" className="InputBox" value={localPhone} onChange={(e) => handleLocalInput(e)} placeholder="1XXXXXXXXXX" />
@@ -115,7 +110,8 @@ function App() {
             </div>
           </div>
           <div>
-            <h2 className="intlTitle">International Number Search</h2>
+            {/* <h2 className="intlTitle">International Number Search</h2> */}
+            <h2>International Number Search</h2>
             <div>
               <h5>Enter International Phone Number: </h5>
               <input className="InputBox" value={intlPhone} onChange={(e) => handleIntlInput(e)} placeholder="44XXXXXXXXX" />
