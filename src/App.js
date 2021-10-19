@@ -91,7 +91,7 @@ function App() {
   return (
     <div className='App' style={rootStyle}>
       <center>
-        <h1>Number Info Tool</h1>
+        <h1>Number Lookup Tool</h1>
         <SplitPane split='vertical' minSize='50%' defaultSize='50%'>
           <div>
             {/* <h2 className="localTitle">Local Number Search</h2> */}
