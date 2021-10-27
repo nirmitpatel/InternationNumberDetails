@@ -27,7 +27,15 @@ function ReturnDetails(props) {
                         {
                             (
                                 localPhoneDetail.hasOwnProperty ('message') ?
-                                    <p className="card-text" style={{ 'color': 'red', 'paddingRight': '10px'}}>ERROR: {localPhoneDetail.message}</p> :
+                                    <p className="card-text" style={{ 'color': 'red', 'paddingRight': '10px' }}>ERROR: {localPhoneDetail.message}</p> :
+                                    localPhoneDetail.hasOwnProperty('transaction_id') ?
+                                        <>
+                                            <p className="card-text">Status Code: {localPhoneDetail.status_code}</p>
+                                            <p className="card-text">Status Desc: {localPhoneDetail.status_desc}</p>
+                                            <p className="card-text">Error: {localPhoneDetail.error}</p>
+                                            <p className="card-text">Eligible: {localPhoneDetail.eligible}</p>
+                                        </>
+                                        :
                                     <>
                                         <p className="card-text">E164 Number: {localPhoneDetail.result[0]["E.164 Format"]}</p>
                                         <p className="card-text">Formatted Number: {localPhoneDetail.result[0].Formatted}</p>
