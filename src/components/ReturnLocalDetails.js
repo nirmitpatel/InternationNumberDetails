@@ -32,6 +32,7 @@ function ReturnDetails(props) {
                                         <>
                                             <p className="card-text">Status Code: {localPhoneDetail.status_code}</p>
                                             <p className="card-text">Status Desc: {localPhoneDetail.status_desc}</p>
+                                            <p className="card-text">BW Desc: {localPhoneDetail.BWDesc}</p>
                                             <p className="card-text">Error: {localPhoneDetail.error}</p>
                                             <p className="card-text">Eligible: {localPhoneDetail.eligible}</p>
                                         </>
