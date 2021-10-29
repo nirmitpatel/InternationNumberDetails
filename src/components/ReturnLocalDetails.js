@@ -36,7 +36,7 @@ function ReturnDetails(props) {
                                             <p className="card-text">Error: {localPhoneDetail.error}</p>
                                             <p className="card-text">Eligible: {localPhoneDetail.eligible}</p>
                                             <br />
-                                            <p className="card-text">Click <a href="https://bandwidth-jira.atlassian.net/wiki/spaces/BT/pages/3971743769/TAC+number+lookup+tool.#ZW-Status-Code-Description">here</a> for more info on status code</p>
+                                            <p className="card-text" style={{ 'color': 'red', 'paddingRight': '10px' }}>Click <a href="https://bandwidth-jira.atlassian.net/wiki/spaces/BT/pages/3971743769/TAC+number+lookup+tool.#ZW-Status-Code-Description" target="_blank">here</a> for more info on status code</p>
                                         </>
                                         :
                                     <>
