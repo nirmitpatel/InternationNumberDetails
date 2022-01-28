@@ -9,7 +9,7 @@ function Navigation() {
             <nav className="navbar navbar-expand navbar-custom">
                 <div className="container">
                     <NavLink className="navbar-brand" to="/">
-                        <img src="../BwLogo.png" alt="Bandwidth Logo" width="40" height="40" />
+                        <img src="%PUBLIC_URL%/BWLogo.png" alt="Bandwidth Logo" width="40" height="40" />
                         TAC Lookup Tool
                     </NavLink>
                     <div>
