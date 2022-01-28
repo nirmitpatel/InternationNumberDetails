@@ -8,7 +8,6 @@ import background from "./background-globe-animated.svg"
 import "./App.css";
 import SplitPane from 'react-split-pane'
 import * as ReactBootStrap from 'react-bootstrap';
-import { RemoveScrollBar } from 'react-remove-scroll-bar';
 
 function App() {
 
@@ -91,12 +90,10 @@ function App() {
 
   return (
     <div className='App' style={rootStyle}>
-      <RemoveScrollBar />
       <center>
-        {/* <h1>Number Lookup Tool</h1> */}
+        <h1>Number Lookup Tool</h1>
         <SplitPane split='vertical' minSize='50%' defaultSize='50%'>
           <div>
-            <p />
             {/* <h2 className="localTitle">Local Number Search</h2> */}
             <h2>Local Number Search</h2>
             <div>
@@ -113,7 +110,6 @@ function App() {
             </div>
           </div>
           <div>
-            <p />
             {/* <h2 className="intlTitle">International Number Search</h2> */}
             <h2>International Number Search</h2>
             <div>
