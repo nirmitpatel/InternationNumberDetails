@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css"
+import logo from "../BWLogo.png"
 
 function Navigation() {
     return (
@@ -9,7 +10,7 @@ function Navigation() {
             <nav className="navbar navbar-expand navbar-custom">
                 <div className="container">
                     <NavLink className="navbar-brand" to="/">
-                        <img src="%PUBLIC_URL%/BWLogo.png" alt="Bandwidth Logo" width="40" height="40" />
+                        <img src={logo} alt="Bandwidth Logo" width="40" height="40" />
                         TAC Lookup Tool
                     </NavLink>
                     <div>
