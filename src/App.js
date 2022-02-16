@@ -60,7 +60,7 @@ function App() {
       .then((data) => {
         setIntlPhoneDetails(intlPhoneDetails => [...intlPhoneDetails, data])
       }
-    )
+      )
     setIntlLoading(true);
   };
   const toggleLocalButtonState = async (e) => {
@@ -101,7 +101,7 @@ function App() {
             <h2>Local Number Search</h2>
             <div>
               <h5>Enter Local Phone Number: </h5>
-              <input id = "local" className="InputBox" value={localPhone} onChange={(e) => handleLocalInput(e)} placeholder="1XXXXXXXXXX" />
+              <input id="local" className="InputBox" value={localPhone} onChange={(e) => handleLocalInput(e)} placeholder="1XXXXXXXXXX" />
               <button className="ClickMeButton" onClick={(e) => toggleLocalButtonState(e)}> View Info! </button>
             </div>
             <div>
